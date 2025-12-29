@@ -1,4 +1,4 @@
-# Sysprox
+# ⚡ Sysprox
 
 A beautiful Terminal User Interface (TUI) for monitoring and controlling systemd services on Linux.
 
