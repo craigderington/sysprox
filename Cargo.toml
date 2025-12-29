@@ -1,0 +1,59 @@
+[package]
+name = "sysprox"
+version = "0.1.1"
+edition = "2021"
+rust-version = "1.70"
+authors = ["Craig <craig@example.com>"]
+description = "A beautiful Terminal User Interface for monitoring and controlling systemd services"
+license = "MIT"
+repository = "https://github.com/yourusername/sysprox"
+keywords = ["systemd", "tui", "monitoring", "linux"]
+categories = ["command-line-utilities"]
+build = "build.rs"
+
+[dependencies]
+# TUI Framework
+ratatui = "0.28"
+crossterm = "0.28"
+tui-input = "0.10"
+
+# Async Runtime
+tokio = { version = "1.40", features = ["full"] }
+tokio-stream = "0.1"
+
+# D-Bus systemd interaction
+zbus = "4.4"
+futures = "0.3"
+
+# CLI & Config
+clap = { version = "4.5", features = ["derive", "cargo"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Utilities
+chrono = { version = "0.4", features = ["serde"] }
+byte-unit = "5.1"
+dirs = "5.0"
+reqwest = { version = "0.12", features = ["json"] }
+
+[dev-dependencies]
+tempfile = "3.10"
+mockall = "0.13"
+serial_test = "3.2"
+assert_cmd = "2.0"
+predicates = "3.1"
+
+[build-dependencies]
+chrono = "0.4"
+
+[[bin]]
+name = "sysprox"
+path = "src/main.rs"
